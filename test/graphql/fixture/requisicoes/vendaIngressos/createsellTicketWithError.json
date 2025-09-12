@@ -1,0 +1,26 @@
+[
+{
+        "nomeDoTeste": "Venda para maiores de 18 anos",
+        "createSellTicket": {
+            "query": "mutation SellTicket($quantity: Int!, $age: Int!, $totalValue: Float!) { sellTicket(quantity: $quantity, age: $age, totalValue: $totalValue) { quantity totalValue } }",
+            "variables": {
+                "quantity": 10,
+                "age": 10,
+                "totalValue": 100
+            }
+        },
+        "mensagemEsperada": "A venda de ingressos não é permitida para menores de 18 anos."
+    },
+    {
+         "nomeDoTeste": "Venda de ingressos com valor total menor que 100",
+        "createSellTicket": {
+            "query": "mutation SellTicket($quantity: Int!, $age: Int!, $totalValue: Float!) {sellTicket(quantity: $quantity, age: $age, totalValue: $totalValue) {quantity totalValue}}",
+            "variables": {
+                "quantity": 10,
+                "age": 40,
+                "totalValue": 20
+            }
+        },
+        "mensagemEsperada": "O valor total da venda não pode ser menor que 100."
+    }
+]

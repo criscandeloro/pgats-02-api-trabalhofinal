@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-const authController = require('./controller/authController');
 const ticketController = require('./controller/ticketController');
+const authService = require('./service/authService');
 
 const app = express();
 
@@ -19,7 +19,7 @@ const swaggerOptions = {
         info: {
             title: 'API de Venda de Ingressos - Exposição Sebastião Salgado',
             version: '1.0.0',
-            description: 'API para autenticação e venda de ingressos, com documentação Swagger.',
+            description: 'API para venda de ingressos, com documentação Swagger.',
         },
         servers: [
             {
@@ -27,18 +27,6 @@ const swaggerOptions = {
                 description: 'Servidor de Desenvolvimento'
             }
         ],
-        components: {
-            securitySchemes: {
-                bearerAuth: {
-                    type: 'http',
-                    scheme: 'bearer',
-                    bearerFormat: 'JWT',
-                }
-            }
-        },
-        security: [{
-            bearerAuth: []
-        }]
     },
     apis: ['./src/controller/*.js'],
 };
@@ -47,7 +35,16 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Rotas da API
-app.use('/', authController);
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const token = await authService.login(username, password);
+        res.json(token);
+    } catch (error) {
+        res.status(401).json({ message: error.message });
+    }
+});
+
 app.use('/', ticketController);
 
 app.get('/', (req, res) => {

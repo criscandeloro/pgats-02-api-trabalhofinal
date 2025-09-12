@@ -1,0 +1,9 @@
+{
+    "query": "mutation SellTicket($quantity: Int!, $age: Int!, $totalValue: Float!) { sellTicket(quantity: $quantity, age: $age, totalValue: $totalValue) { quantity totalValue } }",
+    "variables": {
+       "quantity": 10,
+       "age": 18,
+       "totalValue": 100
+}
+}
+
