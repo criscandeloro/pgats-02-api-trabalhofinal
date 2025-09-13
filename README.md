@@ -1,5 +1,8 @@
 # API de Venda de Ingressos - Exposição Sebastião Salgado
 
+# Trabalho Final da Disciplina da PGATS - Automação de Testes na Camada de API
+# Aluna: Cristine Candeloro de Miranda Santos
+
 Este projeto contém duas implementações de uma API para venda de ingressos:
 
 1.  **API RESTful** com Node.js, Express e documentação Swagger.
@@ -19,9 +22,7 @@ O propósito é servir como base para estudos de automação de testes de API.
 
 1.  **Login**: Usuário e senha são obrigatórios para obter um token de autenticação.
 2.  **Idade Mínima**: Não é permitida a venda de ingressos para usuários menores de 18 anos.
-3.  **Preços Fixos**: Os ingressos possuem valores fixos:
-    - **Inteira**: R$ 50,00
-    - **Meia**: R$ 25,00
+3.  **Preços**: O valor total da venda dos ingressos não pode ser menor que 100.
 
 ## Estrutura do Projeto
 
