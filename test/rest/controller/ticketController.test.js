@@ -86,10 +86,9 @@ describe('Ticket Controller', () => {
                 .set('Authorization', `Bearer ${token}`)
                 .send({
                      "quantity": 1,
-                    "age": 12,
-                    "totalValue": 150
+                    "age": 20,
+                    "totalValue": 50
                 });
-            
             expect(resposta.status).to.equal(400);
             expect(resposta.body).to.have.property('message', 'O valor total da venda não pode ser menor que 100.');
         });    
