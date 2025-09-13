@@ -1,0 +1,22 @@
+ [ {
+        "nomeDoTeste": "Venda para menores de 18 anos",
+        "postSellTicket":{
+              "quantity": 1,
+              "age": 15,
+              "totalValue":150
+            },
+        "statusCode": 400,
+        "mensagemEsperada": "A venda de ingressos não é permitida para menores de 18 anos."
+    },
+    { 
+      "nomeDoTeste": "Venda com valor menor que 100",
+        "postSellTicket": {
+              "quantity": 10,
+              "age": 40,
+              "totalValue": 20
+            },
+        "statusCode": 400,
+        "mensagemEsperada": "O valor total da venda não pode ser menor que 100."
+     }    
+        
+]    

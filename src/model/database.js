@@ -6,13 +6,7 @@ const users = [
 
 const sales = [];
 
-const tickets = {
-    full: 50.00,
-    half: 25.00
-};
-
 module.exports = {
     users,
-    sales,
-    tickets
+    sales
 };
