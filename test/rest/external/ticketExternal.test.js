@@ -12,7 +12,7 @@ use(chaiExclude)
 describe('Sell Tickets', () => {
     describe('POST /sales', () => {
         before(async () => {
-            const postLogin = require('../fixture/requisicoes/login/postLogin.json');
+            const postLogin = require('../fixture/requisicoes/login/postlogin.json');
 
             const respostaLogin = await request(process.env.BASE_URL_REST)
                 .post('/login')
